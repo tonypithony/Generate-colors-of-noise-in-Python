@@ -1,0 +1,90 @@
+\documentclass[russian,12pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{amssymb}
+\usepackage{babel}
+\usepackage{tikz}
+\newcommand{\pmark}[1]{\begin{tikzpicture}[overlay,remember picture]\node(#1)at (-1em,.7ex){};\end{tikzpicture}}
+\newcommand{\smark}[1]{\begin{tikzpicture}[overlay,remember picture]\draw(#1)--(0,.7ex);\end{tikzpicture}}
+\newcommand{\vpmark}[1]{\begin{tikzpicture}[overlay,remember picture]\node(#1)at (.3em,5ex){};\end{tikzpicture}}
+\newcommand{\vsmark}[1]{\begin{tikzpicture}[overlay,remember picture]\draw(#1)--(.3em,-1ex);\end{tikzpicture}}
+\begin{document}
+	\[H = \frac{1}{\sqrt{2}}\left( 
+	\begin{array}{ccc} 
+		1 & 1 \\ 
+		-1 & 1 		 
+	\end{array} 
+	\right)\] 
+	
+		\[H^{-1} = H^T = \frac{1}{\sqrt{2}}\left( 
+	\begin{array}{ccc} 
+		1 & -1 \\ 
+		1 & 1 		 
+	\end{array} 
+	\right)\] 
+	
+	$$A = dwt^{-1}(dwt(A)) = H^T\cdot H\cdot A = E \cdot A = A $$
+	
+	\[A = \left( 
+	\begin{array}{ccc|c} 
+		1 & 2 & 4 & 0 \\ 
+		3 & 7 & 5 & 0
+	\end{array} 
+	\right) \to A' = \left( 
+	\begin{array}{cccc} 
+		1 & 2 & 4 & 0 \\ 
+		3 & 7 & 5 & 0
+	\end{array} 
+	\right)\] 
+	
+	\[H \cdot A' = \frac{1}{\sqrt{2}}\left( 
+	\begin{array}{ccc} 
+		1 & -1 \\ 
+		1 & 1 		 
+	\end{array} 
+	\right) \cdot \left( 
+	\begin{array}{cccc} 
+		1 & 2 & 4 & 0 \\ 
+		3 & 7 & 5 & 0
+	\end{array} 
+	\right) = \frac{1}{\sqrt{2}} \left( 
+	\begin{array}{cccc} 
+		4 & 9 & 9 & 0 \\ 
+		2 & 5 & 1 & 0
+	\end{array} 
+	\right) \]
+	
+	\[H^{-1} \cdot H \cdot A' = \frac{1}{\sqrt{2}}\left( 
+	\begin{array}{ccc} 
+		1 & 1 \\ 
+		-1 & 1 		 
+	\end{array} 
+	\right) \cdot \left( 
+	\begin{array}{cccc} 
+		4 & 9 & 9 & 0 \\ 
+		2 & 5 & 1 & 0
+	\end{array} 
+	\right) = \frac{1}{2} \left( 
+	\begin{array}{cccc} 
+		2 & 4 & 8 & 0 \\ 
+		6 & 14 & 10 & 0
+	\end{array} 
+	\right) = \left( 
+	\begin{array}{cccc} 
+		1 & 2 & 4 & 0 \\ 
+		3 & 7 & 5 & 0
+	\end{array} 
+	\right) = A' \]
+	
+	\[A' = \left( 
+	\begin{array}{cccc} 
+		1 & 2 & 4 & \vpmark{b}0 \\ 
+		3 & 7 & 5 & \vsmark{b}0
+	\end{array} 
+	\right) \to A = \left( 
+	\begin{array}{ccc} 
+		1 & 2 & 4 \\ 
+		3 & 7 & 5
+	\end{array} 
+	\right)\] 
+	
+\end{document}
